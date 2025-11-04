@@ -21,7 +21,12 @@ while read domain; do
     date_s=$(date -d "${res}" +%s)
     now_s=$(date -d now +%s)
     days_left=$(( (date_s - now_s) / 86400 ))
-    echo "$domain certificate will expire in $days_left days"
+
+	if (( days_left < 0 )); then
+    	echo "Certificate expired $(( -days_left )) days ago"
+ 	else
+    	echo "Certificate will expire in $days_left days"
+  	fi
 
 done < "$domains_file"
 
