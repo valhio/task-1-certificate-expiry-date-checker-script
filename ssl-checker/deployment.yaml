@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ssl-checker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ssl-checker
+  template:
+    metadata:
+      labels:
+        app: ssl-checker
+    spec:
+      containers:
+        - name: ssl-checker
+          image: ssl-checker:latest
+          imagePullPolicy: Never   # Tells Kubernetes to use locall image with Docker rather than trying to pull from Docker Hub.
