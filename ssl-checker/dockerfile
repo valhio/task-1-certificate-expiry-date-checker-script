@@ -1,0 +1,13 @@
+FROM debian:bookworm
+
+# Install all needed tools
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    iputils-ping dnsutils curl openssl ca-certificates bash coreutils \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
+COPY check_ssl_expiry.sh .
+COPY domains.txt .
+RUN chmod +x check_ssl_expiry.sh
+
+CMD ["./check_ssl_expiry.sh"]
