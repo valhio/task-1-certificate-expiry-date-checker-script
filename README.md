@@ -2,6 +2,8 @@
 
 This project provides a **simple Bash script** to automatically check and display the **SSL/TLS certificate expiry dates** for a list of websites.  
 It can run locally, inside a **Docker container**, or on **Kubernetes** (e.g., Minikube).
+<br><br>
+Note: the check_ssl_expiry.py script is the Python version of this functionality and it contains an email alerts feature.
 
 ---
 
