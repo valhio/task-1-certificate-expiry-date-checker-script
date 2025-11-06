@@ -1,3 +1,6 @@
+# This script checks SSL certificate expiry for a list of domains and 
+# sends email alerts if they are close to expiring by using a debug SMTP server.
+
 #!/usr/bin/env python3
 import ssl
 import socket
